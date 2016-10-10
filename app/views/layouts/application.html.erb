@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>PodcastSite</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+    <head>
+        <title>PodcastSite</title>
+        <%= csrf_meta_tags %>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <!-- Put the navigation stuff here -->
+                <%= link_to image_tag("logo.png", :height=>"40px"), root_path, :class => "logo-text" %>
+                <!-- <a href="#" class="logo-text"><img height="40px" src="logo.png" /></a> -->
+                <%= link_to new_question_path do %>
+                    <button class="btn-header">Ask a question</button>
+                <% end %>
+            </div>
+            <div class="main">
+                <%= yield %>
+            </div>
+        </div>
+        <div class="footer">
+            Footer stuff here.
+        </div>
+    </body>
 </html>
